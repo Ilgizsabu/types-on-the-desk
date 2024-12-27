@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+<body>
+  <script>
+    const someData = {test: undefined, anotherField: [], undefined: null};
+
+    const getArrayFrom = function (data) {
+      const result = {};
+      for(const key in data) {
+        if (data[key] === null) {
+          result['null'] = (result['null'] || 0) + 1;
+        } else {
+            let dataType = typeof data[key];
+            if (result[dataType] === undefined) {
+              result[dataType] = 1;
+            } else {
+              result[dataType] ++;
+            };
+          };
+      };
+      return result;
+    };
+
+    getArrayFrom(someData);
+  </script>
+</body>
+</html>
