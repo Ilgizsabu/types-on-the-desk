@@ -13,19 +13,18 @@
       const result = {};
       
       for(const key in data) {
-        let dataType = typeof data[key];
-        if (data[key] === null) {
-          result['null'] = (result['null'] || 0) + 1;
+        const dataType = data[key];
+        const value = typeof dataType;
+        if (value === null) {
+          result.null;
         } else if (Array.isArray(data[key])) {
-          result['array'] = (result['array'] || 0) + 1;
-        } else if (dataType === 'undefined') {
-          result['undefined'] = (result['undefined'] || 0) + 1;
-        } else {
-          result[dataType] = (result[dataType] || 0) +1;
+          result.array;
+        } else if (value === 'undefined') {
+          result.undefined; 
         }
+        result[value] = (result[value] || 0) + 1; 
       }
-      
-      return result;
+    return result;
     };
 
     const result = getArrayFrom(someData);
