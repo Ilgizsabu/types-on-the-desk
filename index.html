@@ -13,15 +13,16 @@
       const result = {};
       
       for(const key in data) {
-        let dataType = typeof data[key];
-        if (data[key] === null) {
-          result['null'];
+        const dataType = data[key];
+        const value = typeof dataType;
+        if (value === null) {
+          result.null;
         } else if (Array.isArray(data[key])) {
-          result['array'];
-        } else if (dataType === 'undefined') {
-          result['undefined']; 
+          result.array;
+        } else if (value === 'undefined') {
+          result.undefined; 
         }
-        result[dataType] = (result[dataType] || 0) + 1; 
+        result[value] = (result[value] || 0) + 1; 
       }
     return result;
     };
